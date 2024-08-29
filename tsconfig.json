@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "preserve",
+    "types": [
+      "@cloudflare/workers-types/2023-07-01"
+  ],
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
