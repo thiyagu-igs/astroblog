@@ -9,7 +9,7 @@ export async function getStaticPaths() {
     props: { blogpost },
   }));
 }
-
+export const prerender = true;
 interface Props {
   blogpost: CollectionEntry<'blog'>;
 }
