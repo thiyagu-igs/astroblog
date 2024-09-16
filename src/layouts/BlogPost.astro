@@ -5,7 +5,7 @@ import BlogContent from '@components/blog/BlogContent.astro';
 import RecentBlogPosts from '@components/generic/RecentBlogPosts.astro';
 
 const ogImage = new URL(`/v1/generate/og/${Astro.params.slug}.png`, Astro.url);
-
+export const prerender = false
 const { content, headings } = Astro.props;
 const { title, description } = content;
 ---

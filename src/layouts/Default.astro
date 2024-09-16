@@ -11,7 +11,7 @@ interface Props {
   pageTitle?: string;
   ogImage?: URL;
 }
-
+export const prerender = false
 const { title, description, classList, pageTitle, ogImage } = Astro.props;
 ---
 
