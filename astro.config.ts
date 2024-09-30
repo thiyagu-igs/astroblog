@@ -6,25 +6,26 @@ import UnoCSS from 'unocss/astro';
 
 export default defineConfig({
   // used to generate images
-  //output: 'server',
-  // adapter: cloudflare({    
-  //   // imageService: 'cloudflare',
-  //   // platformProxy: {
-  //   //   enabled: true,
-  //   //   experimentalJsonConfig: true
-  //   // }
-  // }), 
+  output: 'static',
+  base: 'https://thiyagu-igs.github.io/astroblog/',
+  //  adapter: cloudflare({    
+  //  imageService: 'cloudflare',
+  // //   // platformProxy: {
+  // //   //   enabled: true,
+  // //   //   experimentalJsonConfig: true
+  // //   // }
+  //  }), 
+   vite: {
+    ssr: {
+      external: ['node:buffer'],
+    },
+  },
   site:
     process.env.VERCEL_ENV === 'production'
       ? 'https:// astroblog-do6.pages.dev/'
       : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}/`
+      ? `http://127.0.0.1:8788/`
       : 'https://localhost:3000/',
   trailingSlash: 'ignore',
-  integrations: [sitemap(), UnoCSS({ injectReset: true })],
-  vite: {
-    optimizeDeps: {
-      exclude: ['@resvg/resvg-js'],
-    },
-  },
+  integrations: [sitemap(), UnoCSS({ injectReset: true })], 
 });
